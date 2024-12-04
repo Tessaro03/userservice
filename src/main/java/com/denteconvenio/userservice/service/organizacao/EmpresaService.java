@@ -63,7 +63,7 @@ public class EmpresaService {
     }
 
     @CacheEvict(value={"empresa", "beneficiarios", "idEmpresaBeneficiario"}, allEntries=true)
-    public void removerColaboradores(ColaboradoresDTO dto){
+    public void removerColaboradores(HttpServletRequest request, ColaboradoresDTO dto){
         for (UUID id : dto.colaboradores()) {
             var beneficiario = beneficiarioRepository.getReferenceById(id);
             beneficiario.setEmpresa(null);
@@ -88,7 +88,7 @@ public class EmpresaService {
                                     .map(Beneficiario::getId) 
                                     .collect(Collectors.toList());
 
-        removerColaboradores(new ColaboradoresDTO(colaboradoresIds));
+        removerColaboradores(request,new ColaboradoresDTO(colaboradoresIds));
         repository.deleteById(empresaToken.id());
     }
 
