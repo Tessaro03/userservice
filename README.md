@@ -48,15 +48,3 @@ Além disso, ele permite realizar login e cadastro, além de criar relações en
 
 ---
 
-src/
-├── main/
-│   ├── java/
-│   │   └── com.example.userservice/
-│   │       ├── controller/  # Controladores REST
-│   │       ├── service/     # Regras de negócio
-│   │       ├── repository/  # Acesso ao banco de dados
-│   │       ├── infra/       # Configurações (segurança, cache, etc.)
-│   │       ├── domain/      # Modelos e entidades
-│   │       └── validation/  # pré regras de negócio
-│   └── resources/
-│       ├── application.properties  # Configurações principais
